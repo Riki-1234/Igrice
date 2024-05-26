@@ -19,15 +19,21 @@ public class TicTacToe extends Application {
     @Override
     public void start(Stage primaryStage) {
         GridPane gridPane = new GridPane();
-        for (int i = 0; i < 9; i++) {
-            Button button = new Button();
-            button.setPrefSize(150, 150);
-            button.setFont(font);
+
+        int buttonIndex = 0;
+        for (int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+               Button button = new Button();
+               button.setPrefSize(150, 150);
+               button.setFont(font);
             
-            final int index = i;
-            button.setOnAction(e -> handleButtonClick(index));
-            board[i] = button;
-            gridPane.add(button, i % 3, i / 3);
+               final int index = buttonIndex;
+               button.setOnAction(e -> handleButtonClick(index));
+               board[buttonIndex] = button;
+               gridPane.add(button, j, i);
+               
+               buttonIndex++;
+            }
         }
         
         label.setFont(font);
