@@ -81,14 +81,14 @@ private void handleGuess(KeyEvent event) {
 }
 
     private boolean isGuessCorrect(char letter) {
-        boolean correct = false;
+        boolean isCorrect = false;
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == letter) {
                 guessedWord[i] = letter;
-                correct = true;
+                isCorrect = true;
             }
         }
-        return correct;
+        return isCorrect;
     }
 
     private void updateWordLabel() {
